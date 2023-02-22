@@ -1,6 +1,7 @@
 {
   "extends": "@modern-js/tsconfig/base",
   "compilerOptions": {
+    "jsx": "react",
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]

@@ -1,0 +1,18 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": "../",
+    "paths": {
+      "color-selector-react": [
+        "."
+      ],
+      "color-selector-react/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "**/*"
+  ]
+}
