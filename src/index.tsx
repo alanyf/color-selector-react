@@ -1,10 +1,3 @@
-import React from 'react';
-
-
 export * from './color-selector';
-
-
-export const Demo = () => {
-  return <div>hello world</div>
-};
-
+export * from './color-block';
+export * from './color-pipette';

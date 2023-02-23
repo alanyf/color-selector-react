@@ -21,7 +21,7 @@
  /**
   * 网页拾色器【吸管工具】
   */
- class ColorPipette {
+ export class ColorPipette {
    container: any = {};
 
    listener: Record<string, (e: any) => void> = {};
@@ -56,6 +56,8 @@
        this.useMagnifier = useMagnifier;
        // 浏览器支持颜色吸管工具
        if ('EyeDropper' in window) {
+         console.info('使用谷歌浏览器的颜色选择器功能');
+
          this.eyeDropper = new (window as any).EyeDropper();
          return;
        }
@@ -100,7 +102,7 @@
     * 开始
     */
    async start() {
-     if ('EyeDropper' in window) {
+     if (this.eyeDropper) {
        this.eyeDropper
          ?.open()
          // eslint-disable-next-line promise/prefer-await-to-then
@@ -243,6 +245,8 @@
    getPointColor(x: number, y: number) {
      const { scale } = this;
      const { data } = this.ctx.getImageData(x * scale, y * scale, 1, 1);
+     console.log('yf123', data);
+
      const r = data[0];
      const g = data[1];
      const b = data[2];
@@ -251,5 +255,3 @@
      return rbgaObjToHex(rgba);
    }
  }
-
- export default ColorPipette;

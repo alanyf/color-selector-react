@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { SketchPicker } from 'react-color';
-import ColorPipette from '@/color-pipette';
-import ColorBlock from '@/color-block';
 
 import { defaultColors } from './default-colors';
 import PaletteIcon from './icon/palette';
 import PipetteIcon from './icon/pipette';
 import ArrowIcon from './icon/arrow-right';
 import { getColorInfo, IColorObj, toHexString } from './color-utils';
+import { ColorBlock } from '@/color-block';
+import { ColorPipette } from '@/color-pipette';
 
 import './index.less';
 
@@ -36,8 +36,8 @@ const setLocalRecentColors = (localStorageKey: string, colors: string[]) => {
   localStorage.setItem(localStorageKey, colors.join(', '));
 };
 
-const getHexColor = (color?: string) => {
-  color = color || '#000000';
+const getHexColor = (_color?: string) => {
+  const color = _color || '#000000';
   return color.startsWith('#') ? color : getColorInfo(color).hex;
 };
 
@@ -185,7 +185,8 @@ export const ColorSelector = (props: IProps) => {
       ref={containerRef}
       className={`color-picker-container ${className}`}
       style={{ ...style }}
-      {...rest}>
+      {...rest}
+    >
       {showNoneButton && (
         <div
           className="none-color-container"
@@ -198,7 +199,8 @@ export const ColorSelector = (props: IProps) => {
               color: noneValue,
             } as any);
             onVisibleChange(false);
-          }}>
+          }}
+        >
           {noneTitle}
         </div>
       )}
@@ -231,7 +233,8 @@ export const ColorSelector = (props: IProps) => {
             className={`more-color-panel-container ${
               hoverLeft ? 'more-color-panel-left' : ''
             }`}
-            onClick={handleEnable}>
+            onClick={handleEnable}
+          >
             <SketchPicker
               color={color}
               onChange={({ rgb }) => handleMoreColorChange(rgb)}
