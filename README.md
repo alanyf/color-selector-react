@@ -33,7 +33,7 @@ npm install -s color-selector-react
 
 ```js
 import React, { useState } from 'react';
-import ColorPicker from 'color-selector-react';
+import { ColorSelector } from 'color-selector-react';
 import 'color-selector-react/dist/es/index.css';
 
 export default () => {
@@ -51,7 +51,7 @@ export default () => {
           backgroundColor: color,
         }}
       />
-      {<ColorPicker
+      {<ColorSelector
         style={{ position: 'absolute' }}
         color={color}
         visible={visible}

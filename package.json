@@ -1,6 +1,6 @@
 {
   "name": "color-selector-react",
-  "version": "0.3.0-beta.2",
+  "version": "0.3.0-beta.4",
   "jsnext:source": "./src/index.tsx",
   "types": "./dist/types/index.d.ts",
   "main": "./dist/lib/index.js",

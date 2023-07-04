@@ -49,7 +49,7 @@ interface IChangeParams {
   rgbaObj: { r: number; g: number; b: number; a: number };
 }
 
-interface IProps {
+export interface IColorSelectorProps {
   color?: string;
   recommendedColors?: string[];
   visible?: boolean;
@@ -65,7 +65,7 @@ interface IProps {
   onChange?: (e: IChangeParams) => void;
   onVisibleChange?: (visible: boolean) => void;
 }
-export const ColorSelector = (props: IProps) => {
+export const ColorSelector = (props: IColorSelectorProps) => {
   const {
     recommendedColors = defaultColors,
     visible = true,
